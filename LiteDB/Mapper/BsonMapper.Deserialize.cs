@@ -72,7 +72,7 @@ namespace LiteDB
 
         #endregion
 
-        internal object Deserialize(Type type, BsonValue value)
+        protected internal object Deserialize(Type type, BsonValue value)
         {
             Func<BsonValue, object> custom;
 
@@ -132,7 +132,7 @@ namespace LiteDB
             // if value is array, deserialize as array
             else if (value.IsArray)
             {
-                // when array are from an object (like in Dictionary<string, object> { ["array"] = new string[] { "a", "b" } 
+                // when array are from an object (like in Dictionary<string, object> { ["array"] = new string[] { "a", "b" }
                 if (type == typeof(object))
                 {
                     return this.DeserializeArray(typeof(object), value.AsArray);
