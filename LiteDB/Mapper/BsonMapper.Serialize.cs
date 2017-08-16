@@ -29,7 +29,7 @@ namespace LiteDB
             return this.ToDocument(typeof(T), entity).AsDocument;
         }
 
-        protected internal BsonValue Serialize(Type type, object obj, int depth)
+        protected internal virtual BsonValue Serialize(Type type, object obj, int depth)
         {
             if (++depth > MAX_DEPTH) throw LiteException.DocumentMaxDepth(MAX_DEPTH, type);
 

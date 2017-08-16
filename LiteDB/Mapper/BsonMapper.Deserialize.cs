@@ -72,7 +72,7 @@ namespace LiteDB
 
         #endregion
 
-        protected internal object Deserialize(Type type, BsonValue value)
+        protected internal virtual object Deserialize(Type type, BsonValue value)
         {
             Func<BsonValue, object> custom;
 
@@ -193,7 +193,7 @@ namespace LiteDB
             return value.RawValue;
         }
 
-        private object DeserializeArray(Type type, BsonArray array)
+        protected Array DeserializeArray(Type type, BsonArray array)
         {
             var arr = Array.CreateInstance(type, array.Count);
             var idx = 0;

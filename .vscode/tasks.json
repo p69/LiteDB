@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/LiteDB.Tests/LiteDB.Tests.csproj"
+                "${workspaceRoot}/LiteDB.FSharp.Tests/LiteDB.FSharp.Tests.fsproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
