@@ -9,6 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LiteDB\LiteDB.csproj" />
+    <ProjectReference Include="..\LiteDB.FSharp\LiteDB.FSharp.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Expecto" Version="5.0.0" />
