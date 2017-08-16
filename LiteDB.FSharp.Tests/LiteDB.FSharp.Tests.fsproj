@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Mapper.fs" />
+    <Compile Include="Main.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LiteDB\LiteDB.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Expecto" Version="5.0.0" />
+  </ItemGroup>
+</Project>
