@@ -72,7 +72,7 @@ namespace LiteDB
 
         #endregion
 
-        protected internal virtual object Deserialize(Type type, BsonValue value)
+        public virtual object Deserialize(Type type, BsonValue value)
         {
             Func<BsonValue, object> custom;
 
