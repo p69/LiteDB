@@ -12,6 +12,7 @@ type Single = A
 type CompositeDU =
   | CA of s:Shape*name:string
   | CB of Single
+  | CC of CompositeDU
 
 [<Tests>]
 let tests =
@@ -64,4 +65,21 @@ let tests =
           | Circle r -> Expect.floatClose Accuracy.low r 2.0 "radius"
           | _ -> failtest "Should be Circle"
       | _ -> failtest "Should be CA"
+
+    testCase "Composite recursive" <| fun _ ->
+      let mapper = LiteDB.FSharp.Mapper.instance
+      let ca = CA(Shape.Circle(2.0), "circle")
+      let cc = CC(ca)
+      let doc = mapper.ToDocument cc
+      let no = mapper.ToObject<CompositeDU>(doc)
+      match no with
+      | CC field ->
+          match field with
+          | CA (s,n) ->
+              Expect.equal n "circle" "name"
+              match s with
+              | Circle r -> Expect.floatClose Accuracy.low r 2.0 "radius"
+              | _ -> failtest "Should be Circle"
+          | _ -> failtest "Should be CA"
+      | _ -> failtest "Should be CC"
   ]
